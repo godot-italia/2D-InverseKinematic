@@ -1,2 +1,6 @@
 # 2D-InverseKinematic
-An Inverse Kinematic 2D test project. Use it as you like!
+
+This project consists in an Inverse Kinematic Sandbox.  
+Use the *bluebuddy* to move around the map with obstacles and slopes and see how it changes behaviors customizing all possible values!  
+
+Have fun! :)
