@@ -1,0 +1,300 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://asset/img/ui_elements/path845.png" type="Texture" id=1]
+[ext_resource path="res://asset/img/etc/rect841.png" type="Texture" id=2]
+[ext_resource path="res://asset/img/ui_elements/path851.png" type="Texture" id=3]
+[ext_resource path="res://src/script/Node2D.gd" type="Script" id=4]
+[ext_resource path="res://src/scene/upper.tscn" type="PackedScene" id=5]
+[ext_resource path="res://asset/img/ui_elements/path849.png" type="Texture" id=6]
+[ext_resource path="res://asset/img/body_parts/leg.png" type="Texture" id=7]
+[ext_resource path="res://asset/img/body_parts/rect835-3.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 72, 56 )
+
+[node name="Sandbox" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+show_behind_parent = true
+position = Vector2( 322, 432 )
+collision_mask = 3
+
+[node name="rect841" type="Sprite" parent="StaticBody2D"]
+visible = false
+scale = Vector2( 1.0585, 1.05494 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -74, 16 )
+polygon = PoolVector2Array( 0, 0, 280, -8, 680, -72, 856, -72, 1176, 64, 1328, 64, 1584, 16, 1720, 32, 1824, 56, 2016, 0, 2360, -112, 2776, -344, 3112, -280, 3656, -152, 3976, 248, 1768, 184, 0, 176 )
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2( -74, 16 )
+color = Color( 0.129412, 0.52549, 0.435294, 1 )
+polygon = PoolVector2Array( 0, 0, 280, -8, 672, -72, 856, -72, 1176, 64, 1336, 64, 1584, 16, 1824, 56, 2360, -112, 2776, -344, 3656, -152, 3976, 248, 0, 176 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 1064, -80 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+color = Color( 0.764706, 0.117647, 0.117647, 1 )
+polygon = PoolVector2Array( -72, -56, 72, -56, 72, 56, -72, 56 )
+
+[node name="Node2D" type="Node2D" parent="."]
+show_behind_parent = true
+position = Vector2( 304, 176 )
+
+[node name="armb" type="Sprite" parent="Node2D"]
+modulate = Color( 0.0588235, 0.490196, 0.227451, 1 )
+show_behind_parent = true
+position = Vector2( 31.9995, -56 )
+texture = ExtResource( 7 )
+
+[node name="leg" type="Sprite" parent="Node2D/armb"]
+position = Vector2( 40.0005, 64 )
+rotation = -1.0472
+texture = ExtResource( 7 )
+
+[node name="path849" type="Sprite" parent="Node2D"]
+position = Vector2( 1.99982, -145 )
+texture = ExtResource( 6 )
+
+[node name="Node2D" parent="Node2D" instance=ExtResource( 5 )]
+modulate = Color( 0.780392, 0.780392, 0.780392, 1 )
+position = Vector2( 16, 0 )
+delay = 3.142
+
+[node name="body" type="Sprite" parent="Node2D"]
+position = Vector2( 3.09944e-06, -48 )
+texture = ExtResource( 8 )
+
+[node name="Node2D2" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( -14, 0 )
+leg = 1
+
+[node name="armf" type="Sprite" parent="Node2D"]
+modulate = Color( 0.27451, 0.784314, 0.47451, 1 )
+position = Vector2( -32, -56 )
+texture = ExtResource( 7 )
+
+[node name="leg" type="Sprite" parent="Node2D/armf"]
+position = Vector2( 26, 80 )
+rotation = -0.523598
+texture = ExtResource( 7 )
+
+[node name="Heigth" type="RayCast2D" parent="Node2D"]
+position = Vector2( 40, 0 )
+enabled = true
+cast_to = Vector2( 0, 300 )
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+current = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="x" type="HBoxContainer" parent="UI"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 280.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/x"]
+margin_top = 1.0
+margin_right = 20.0
+margin_bottom = 15.0
+text = "Ax:"
+
+[node name="x" type="HSlider" parent="UI/x"]
+margin_left = 24.0
+margin_right = 224.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 200, 0 )
+max_value = 61.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="UI/x"]
+margin_left = 228.0
+margin_top = 1.0
+margin_right = 228.0
+margin_bottom = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="y" type="HBoxContainer" parent="UI"]
+margin_left = 32.0
+margin_top = 56.0
+margin_right = 272.0
+margin_bottom = 72.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="UI/y"]
+margin_top = 1.0
+margin_right = 20.0
+margin_bottom = 15.0
+text = "Ay:"
+
+[node name="y" type="HSlider" parent="UI/y"]
+margin_left = 24.0
+margin_right = 224.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 200, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="UI/y"]
+margin_left = 228.0
+margin_top = 1.0
+margin_right = 228.0
+margin_bottom = 15.0
+
+[node name="t" type="HBoxContainer" parent="UI"]
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 259.0
+margin_bottom = 112.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="UI/t"]
+margin_top = 1.0
+margin_right = 43.0
+margin_bottom = 15.0
+text = "Speed:"
+
+[node name="t" type="HSlider" parent="UI/t"]
+margin_left = 47.0
+margin_right = 247.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 200, 0 )
+min_value = -10.0
+max_value = 10.0
+step = 0.1
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="UI/t"]
+margin_left = 251.0
+margin_top = 1.0
+margin_right = 251.0
+margin_bottom = 15.0
+
+[node name="h" type="HBoxContainer" parent="UI"]
+margin_left = 764.0
+margin_top = 17.0
+margin_right = 1012.0
+margin_bottom = 33.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/h"]
+margin_top = 1.0
+margin_right = 8.0
+margin_bottom = 15.0
+text = "h"
+
+[node name="h" type="HSlider" parent="UI/h"]
+margin_left = 12.0
+margin_right = 212.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 200, 0 )
+min_value = 320.0
+max_value = 432.0
+value = 432.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="UI/h"]
+margin_left = 216.0
+margin_top = 1.0
+margin_right = 216.0
+margin_bottom = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="alpha" type="HBoxContainer" parent="UI"]
+margin_left = 736.0
+margin_top = 58.0
+margin_right = 982.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="UI/alpha"]
+margin_top = 1.0
+margin_right = 38.0
+margin_bottom = 15.0
+text = "alpha:"
+
+[node name="alpha" type="HSlider" parent="UI/alpha"]
+margin_left = 42.0
+margin_right = 242.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 200, 0 )
+min_value = -90.0
+max_value = 90.0
+tick_count = 20
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="UI/alpha"]
+margin_left = 246.0
+margin_top = 1.0
+margin_right = 246.0
+margin_bottom = 15.0
+
+[node name="path845" type="Sprite" parent="UI"]
+position = Vector2( 959.5, 544 )
+scale = Vector2( 1e-05, 1 )
+texture = ExtResource( 1 )
+
+[node name="Ax" type="Sprite" parent="UI"]
+modulate = Color( 0, 1, 0.203922, 1 )
+position = Vector2( 959.5, 544 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="UI/Ax"]
+margin_left = -8.0
+margin_top = -24.0
+margin_right = 8.0
+margin_bottom = -10.0
+text = "Ax"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ay" type="Sprite" parent="UI"]
+modulate = Color( 1, 0.960784, 0, 1 )
+position = Vector2( 959.5, 544 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="UI/Ay"]
+margin_left = -8.0
+margin_top = -24.0
+margin_right = 8.0
+margin_bottom = -10.0
+text = "Ay"
+__meta__ = {
+"_edit_use_anchors_": false
+}

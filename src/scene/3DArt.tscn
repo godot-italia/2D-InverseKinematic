@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 3.0
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Position3D" type="Position3D" parent="."]
+transform = Transform( 0.41005, -0.831698, 0.374349, 0.836633, 0.506434, 0.208734, -0.363187, 0.227601, 0.903489, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Position3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.51412, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Position3D2" type="Position3D" parent="Position3D"]
+transform = Transform( 0.62269, 0.773285, -0.119525, -0.782468, 0.615561, -0.0939615, 0.000915766, 0.152033, 0.988375, -0.0653911, -2.97406, -0.016057 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Position3D/Position3D2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.51412, 0 )
+mesh = SubResource( 1 )
+material/0 = null
